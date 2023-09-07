@@ -8,25 +8,15 @@
     <link rel="stylesheet" href="assets/style/style.css">
 </head>
 <body>
-    <table id="comms">
-        <thead>
-            <th>Név</th>
-            <th>Kor</td>
-            <th>Hozzászólás</th>
-        </thead>
-        
-    </table>
-    <div>
+
+<div onload="load()">
     <label for="name">Név:</label>
     <input type="name" id="name">
     <label for="kor">Kor:</label>
     <input type="number" name="kor" id="kor">
 </div>
-    <label for="comment">Megjegyzés</label>
-    <br>
-    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-    <br>
     <button onclick="send()">Küldés</button>
+<h1 id="udv"></h1>
 </body>
 </html>
 <script src="assets/js/main.js"></script>

@@ -1,26 +1,34 @@
-let emberek =[]
-function send(params) {
-    let name = document.getElementById("name").value;
-    let CommText= document.getElementById("comment").value;
-    let kor = document.getElementById("kor").value;
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    console.log("cooki bent");
+  }
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
 
 
-
-    let ember=
-    {
-        nev:name,
-        eletkor:kor,
-        komment:CommText
-    };
-    
-
-    emberek.push(ember);
-    kirajzol();
+function send(){
+    setCookie("nev",document.getElementById("name").value, 10);
+    load();
+    console.log("kuldve");
 }
-function kirajzol(params) {
-    let mezo= document.getElementById("comms");
-    emberek.forEach(element => {
-        mezo.innerHTML+="<tr><td>"+element.nev+"</td><td>"+element.eletkor+"</td><td>"+element.komment+"</td></tr>";
-    });
-    
+function load(params) {
+    document.getElementById("udv").innerHTML="Szia, "+getCookie("nev")+"!";
+    console.log("töltve");
 }
