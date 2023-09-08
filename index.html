@@ -1,22 +1,65 @@
 <!DOCTYPE html>
 <html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kutya</title>
-    <link rel="stylesheet" href="assets/style/style.css">
-</head>
-<body>
-
-<div onload="load()">
-    <label for="name">Név:</label>
-    <input type="name" id="name">
-    <label for="kor">Kor:</label>
-    <input type="number" name="kor" id="kor">
-</div>
-    <button onclick="send()">Küldés</button>
-<h1 id="udv"></h1>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <title>Kutya mobilról</title>
+    </head>
+    <body>
+        <div>
+            <input type="radio" name="neme" id="fiu"  selected value="fiu">férfi 
+            <input type="radio" name="neme" id="leany" value="leany">
+            
+        </div>
+        <div>
+            <input type="number" id="kor"><button onclick="add()">ok</button>
+        </div>
+        <div>
+            <p>férfiak száma: <span id="fszam"></span> 
+            , átlagéletkor: <span id="fkor"></span>
+            </p>
+            <p>nők száma: <span id="nszam"></span> 
+            , átlagéletkor: <span id="nkor"></span>
+            </p>
+        </div>
+    </body>
 </html>
-<script src="assets/js/main.js"></script>
+<script>
+    function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function add() {
+   let fiue= document.getElementById("fiu").checked
+   if(fiue) {
+    let fossz=getCookie("fossz")
+    let fszam=getCookie("fszam")
+      parseInt(fossz)+=document.getElementById("kor").value
+       setCookie("fossz",fossz,10)
+       setCookie("fsazm",fszam+1,10)
+       document.getElementById("fszam").innerHTML=fszam
+       document.getElementById("fkor").innerHTML=fkor
+    
+
+   }else {
+       
+   }
+}
+</script>

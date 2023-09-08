@@ -25,10 +25,11 @@ function setCookie(cname, cvalue, exdays) {
 
 function send(){
     setCookie("nev",document.getElementById("name").value, 10);
+    setCookie("kor",document.getElementById("kor").value, 10);
     load();
     console.log("kuldve");
 }
 function load(params) {
-    document.getElementById("udv").innerHTML="Szia, "+getCookie("nev")+"!";
+    document.getElementById("udv").innerHTML="Szia, "+getCookie("nev")+"! Boldog "+getCookie("kor")+". születésnapot";
     console.log("töltve");
 }
