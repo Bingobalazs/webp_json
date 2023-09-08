@@ -6,8 +6,8 @@
     </head>
     <body>
         <div>
-            <input type="radio" name="neme" id="fiu"  selected value="fiu">férfi 
-            <input type="radio" name="neme" id="leany" value="leany">
+            <input type="radio" name="neme" id="fiu"  selected value="fiu">csökken 
+            <input type="radio" name="neme" id="leany" value="leany">Nő
             
         </div>
         <div>
@@ -45,21 +45,42 @@ function getCookie(cname) {
   }
   return "";
 }
+let emberek= [
+]
+let osszferfi=0, osszno=0, fkor=0, nkor=0;
 
 function add() {
-   let fiue= document.getElementById("fiu").checked
-   if(fiue) {
-    let fossz=getCookie("fossz")
-    let fszam=getCookie("fszam")
-      parseInt(fossz)+=document.getElementById("kor").value
-       setCookie("fossz",fossz,10)
-       setCookie("fsazm",fszam+1,10)
-       document.getElementById("fszam").innerHTML=fszam
-       document.getElementById("fkor").innerHTML=fkor
+    osszferfi=0; osszno=0; fkor=0; nkor=0;
+    if (document.getElementById("fiu").checked) {
+        emberek.push(
+       {nem:"férfi",
+        kor:document.getElementById("kor").value})
+
+    } 
+    else if (document.getElementById("leany").checked) {
+        emberek.push(
+       {nem:"nő",
+        kor:document.getElementById("kor").value})
+    } else alert("hiba");
     
 
-   }else {
-       
-   }
+  
+   
+   emberek.forEach(element => {
+       if (element.nem=="férfi") {
+        osszferfi++
+        fkor+=parseInt(element.kor)
+        console.log("fiju");
+       } else {
+        osszno++
+        nkor+=parseInt(element.kor)
+        console.log("lanyka");
+       }
+   });
+   document.getElementById("fszam").innerHTML=osszferfi
+   document.getElementById("nszam").innerHTML=osszno
+   if (osszferfi>0 ) document.getElementById("fkor").innerHTML=fkor/osszferfi;
+   if (osszno>0 )document.getElementById("nkor").innerHTML=nkor/osszno
+
 }
 </script>
