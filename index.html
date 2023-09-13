@@ -1,86 +1,30 @@
 <!DOCTYPE html>
 <html lang="hu">
-    <head>
-        <meta charset="utf-8">
-        <title>Kutya mobilról</title>
-    </head>
-    <body>
-        <div>
-            <input type="radio" name="neme" id="fiu"  selected value="fiu">csökken 
-            <input type="radio" name="neme" id="leany" value="leany">Nő
-            
-        </div>
-        <div>
-            <input type="number" id="kor"><button onclick="add()">ok</button>
-        </div>
-        <div>
-            <p>férfiak száma: <span id="fszam"></span> 
-            , átlagéletkor: <span id="fkor"></span>
-            </p>
-            <p>nők száma: <span id="nszam"></span> 
-            , átlagéletkor: <span id="nkor"></span>
-            </p>
-        </div>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Osztály</title>
+</head>
+<body>
+  <section id="osztalyadat">
+    <label for="osztalynev">Osztály neve: </label>
+    <input name="osztalynev" type="text" id="osztalynev">
+    <label for="ofonev">Osztályfőnök neve: </label>
+    <input name="ofonev" type="text" id="ofonev">
+    <button  onclick="tagok()">Tovább</button>
+    <button  onclick="listaz()">Lista</button>
+  </section>
+  <section id="tanulo" style="display: none;">
+    <label for="tannev">Név: </label>
+    <input name="tannev" type="text" id="tannev">
+    <label for="tanlak">Lakóhely: </label>
+    <input name="tanlak" type="text" id="tanlak">
+    <button  onclick="mentes()">Mentés</button>
+    <button  onclick="osztaly()">Kész</button>
+  </section>
+  <section id="listanez" style="display: none;">
+
+  </section>
+</body>
 </html>
-<script>
-    function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-  let expires = "expires="+d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-let emberek= [
-]
-let osszferfi=0, osszno=0, fkor=0, nkor=0;
-
-function add() {
-    osszferfi=0; osszno=0; fkor=0; nkor=0;
-    if (document.getElementById("fiu").checked) {
-        emberek.push(
-       {nem:"férfi",
-        kor:document.getElementById("kor").value})
-
-    } 
-    else if (document.getElementById("leany").checked) {
-        emberek.push(
-       {nem:"nő",
-        kor:document.getElementById("kor").value})
-    } else alert("hiba");
-    
-
-  
-   
-   emberek.forEach(element => {
-       if (element.nem=="férfi") {
-        osszferfi++
-        fkor+=parseInt(element.kor)
-        console.log("fiju");
-       } else {
-        osszno++
-        nkor+=parseInt(element.kor)
-        console.log("lanyka");
-       }
-   });
-   document.getElementById("fszam").innerHTML=osszferfi
-   document.getElementById("nszam").innerHTML=osszno
-   if (osszferfi>0 ) document.getElementById("fkor").innerHTML=fkor/osszferfi;
-   if (osszno>0 )document.getElementById("nkor").innerHTML=nkor/osszno
-
-}
-</script>
+<script src="assets/js/main.js"></script>
