@@ -36,11 +36,12 @@ function listaz(params) {
   lista.style="display:block;"
   tanulo.style="display:none;"
   osztalyok.forEach(element => {
-    lista.innerHTML += "<ul><h1>"+element.osztaly+" "+element.ofo+"</h1></ul>";
+    lista.innerHTML += "<table><thead><th> Osztáyl: "+element.osztaly+"</th>  <th>Osztályfőnök: "+element.ofo+"</th></thead>";
     let szamlalo =1;
     element.tagok.forEach(tag => {
-      lista.innerHTML+= "<li>"+szamlalo+". Tanuló: "+tag.nev+"<ul><li> Lakóhelye: "+tag.lakohely+"</li></ul></li>"
+      lista.innerHTML+= "<tr><td>"+szamlalo+". "+tag.nev+"</td><td> "+tag.lakohely+"</td></tr>"
       szamlalo++;
     });
+  lista.innerHTML+="</table>"
   });
 }

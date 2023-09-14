@@ -4,27 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Osztály</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <section id="osztalyadat">
+<div>
     <label for="osztalynev">Osztály neve: </label>
     <input name="osztalynev" type="text" id="osztalynev">
+
+
     <label for="ofonev">Osztályfőnök neve: </label>
     <input name="ofonev" type="text" id="ofonev">
+<div class="gombok">
     <button  onclick="tagok()">Tovább</button>
     <button  onclick="listaz()">Lista</button>
+  </div>
+</div>
   </section>
+
   <section id="tanulo" style="display: none;">
+  <div>
     <label for="tannev">Név: </label>
     <input name="tannev" type="text" id="tannev">
     <label for="tanlak">Lakóhely: </label>
     <input name="tanlak" type="text" id="tanlak">
+    <div class="gombok">
     <button  onclick="mentes()">Mentés</button>
     <button  onclick="osztaly()">Kész</button>
+    </div></div>
   </section>
-  <section id="listanez" style="display: none;">
-
-  </section>
+  
+<table id="listanez" style="display: none;">
+  
+</table>
+  
 </body>
 </html>
 <script src="assets/js/main.js"></script>
