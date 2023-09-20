@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendszámos cucc 12ÉVFOLYAM</title>
+</head>
+<style>
+    table, tr, td{
+        border: solid 0.2px black;
+        text-align: center;
+    }
+    span{
+        color: blue;
+    }
+</style>
+<body>
+    <input type="text" name="rsz" id="rszinp">
+
+    <label for="uzemanyag">Üzemanyag típus:</label>
+    <select name="uzemanyag" id="uzemanyaginp">
+        <option value="benzin">Benzin</option>
+        <option value="dizel">Dízel</opttion>
+        <option value="elektromos">Elektromos</opttion>
+    </select>
+    <input type="checkbox" name="elsot" id="elsotinp"><label for="elsot">Első tulajdonos?</label>
+    <input type="radio" id="3ajto" name="ajtok" value="3ajto">
+    <label for="ajtok">3 ajtós</label>
+    <input type="radio" id="5ajto" name="ajtok" value="5ajto" checked>
+    <label for="ajtok">5 ajtós</label>
+    <button onclick="tarol()">Tárol</button>
+    <button onclick="stat()">Statisztika</button>
+    <table >
+        <tr>
+            <td rowspan="2">Üzemanyag szerint</td>
+            <td>Benzin</td>
+            <td>Dízel</td>
+            <td>Elektromos</td>
+        </tr>
+        <tr>
+            <td><span id="statBenzin"></span></td>
+            <td><span id="statDizel"></span></td>
+            <td><span id="statElekt"></span></td>
+        </tr>
+        <tr>
+            <td>Első tulajdonosok százalékos aránya</td>
+            <td colspan="3"><span id="statTulaj"> </span></td>
+        </tr>
+        <tr>
+            <td>Rendszámok megoszlása</td>
+            <td>Régi rendszám</td>
+            <td>új rendszám</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><span id="statRegi"></span></td>
+            <td><span id="statUj"></span></td>
+        </tr>
+        <tr>
+            <td>melyik népszerűbb?</td>
+            <td colspan="3"><span id="statNepszer"></span></td>
+        </tr>
+    </table>
+</body>
+</html>
+<script src="assets/js/script.js"></script>
