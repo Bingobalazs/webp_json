@@ -1,3 +1,16 @@
 body{
     background-color: #f4e6d7;
 }
+img{
+    width: 250px;
+    height: 250px;
+    margin-right: 30px;
+    border: solid 1px rgb(77, 20, 20);
+}
+.kozep {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    
+  }
