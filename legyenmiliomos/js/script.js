@@ -9,7 +9,7 @@ var kerdesek =[
         v2:"igen",
         v3:"vau",
         v4:"miau",
-        jo:v3
+        jo:"v3"
     },
     {
         k:"cica vagy?",
@@ -17,7 +17,7 @@ var kerdesek =[
         v2:"igen",
         v3:"vau",
         v4:"miau",
-        jo:v3
+        jo:"v4"
     },
     {
         k:"fasszopocsabika vagy?",
@@ -25,7 +25,7 @@ var kerdesek =[
         v2:"nem, de ő az",
         v3:"CSABCSABACSIBICSABABABAB",
         v4:"n*ger",
-        jo:v1
+        jo:"v1"
     },
     {
         k:"vagy?",
@@ -33,7 +33,7 @@ var kerdesek =[
         v2:"gondolkodom",
         v3:"fidesz",
         v4:"nemjézus",
-        jo:v2
+        jo:"v2"
     },
     {
         k:"",
@@ -41,7 +41,7 @@ var kerdesek =[
         v2:"igen",
         v3:"vau",
         v4:"miau",
-        jo:v1
+        jo:"v1"
     }
 ] 
 function next(params) {
@@ -58,6 +58,11 @@ btn.addEventListener("click", () => {
             valasztott = v.value;
             break;
         }
+    }
+    if (valasztott==kerdesek[kerdesSzorsz].jo) {
+        
+    } else {
+        
     }
 })
 
