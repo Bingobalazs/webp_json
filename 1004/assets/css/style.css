@@ -23,3 +23,8 @@ body{
     padding: 50px 50px 50px;
     
   }
+  input[type="range"]::-webkit-slider-thumb,
+input[type="range"]::-moz-range-thumb,
+input[type="range"]::-ms-thumb {
+    opacity:0;
+}
