@@ -1,0 +1,25 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap');
+
+body{
+    background-color: #04364A;
+    color: #fff;
+    font-family: 'IBM Plex Mono', monospace;
+}
+.kozep {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    text-align: center;
+    margin-top: 50px;
+    
+    
+  }
+  .blokk{
+    border-radius: 25px;
+    background-color: #176B87;
+    padding: 50px 50px 50px;
+    
+  }

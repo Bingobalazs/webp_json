@@ -6,7 +6,8 @@
     <title>Kvíz</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body id="test" onload="ujkerdes()">
+    <div class="kozep">
     <h1 id="kerdes">Kérdés</h1>
     <input type="radio" id="v1" name="valasz" value="v1">
 <label for="v1" id="v1ir"></label><br>
@@ -19,8 +20,10 @@
 
 <input type="radio" id="v4" name="valasz" value="v4">
 <label for="v4" id="v4ir"></label>
-<button id="btn">Válaszol</button>
+<br>
 
+<button id="btn" onclick="next()">Válaszol</button>
+</div>
 
 </body>
 </html>

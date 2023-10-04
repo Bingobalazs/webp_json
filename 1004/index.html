@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type fast!</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body onload="loader()">
+    <div class="kozep">
+        <div class="blokk">
+    <label for="nev">Neved:</label>
+    <input type="text" name="nev" id="nev">
+    <p>Írd be az alábbiakat a lentö szövegmezőbe</p>
+    <div id="locked">
+        <h1 id="text" >
+    a
+        </h1>
+    </div>
+    
+    <input type="text" id="inp" style="width: 100%;">
+
+    <h2 id="timer"></h2>
+    <h2 id="cpm"></h2>
+    <div id="complete">
+        <h3>Sikerült!</h3>
+        <button onclick="loader()">Új szöveg</button>
+
+    </div>
+</div>
+</div>
+</body>
+</html>
+<script src="assets/js/script.js"></script>

@@ -1,7 +1,12 @@
-var kerdesSzorsz =0;
+var kerdesSzorsz =-1;
 var jovalasz=0
 var rosszvalasz =0
-
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
+  
+  
 var kerdesek =[
     {
         k:"Kutya vagy?",
@@ -25,7 +30,7 @@ var kerdesek =[
         v2:"nem, de ő az",
         v3:"CSABCSABACSIBICSABABABAB",
         v4:"n*ger",
-        jo:"v1"
+        jo:"v2"
     },
     {
         k:"vagy?",
@@ -36,44 +41,54 @@ var kerdesek =[
         jo:"v2"
     },
     {
-        k:"",
-        v1:"",
-        v2:"igen",
-        v3:"vau",
-        v4:"miau",
-        jo:"v1"
+        k:"Folytasd a dalszöveget: Nem tudom a neved",
+        v1:"ÁÁÁHÁHÁHHHÁÁ",
+        v2:"Ajjajjaj",
+        v3:"Csak hallgatom mit ugat a mély",
+        v4:"Minden városka lakatlan",
+        jo:"v3"
     }
 ] 
 function next(params) {
 
 
 
-
 const btn = document.querySelector('#btn');        
 const valaszok = document.querySelectorAll('input[name="valasz"]');
-btn.addEventListener("click", () => {
+
     var valasztott;
-    for (const v of valaszok) {
+    for (let v of valaszok) {
         if (v.checked) {
             valasztott = v.value;
+            console.log("tied"+valasztott);
             break;
         }
     }
+    console.log("jovalasz:"+kerdesek[kerdesSzorsz].jo);
     if (valasztott==kerdesek[kerdesSzorsz].jo) {
-        
+        jovalasz++
+        document.getElementById("test").style="background-color:green; "
+        sleep(800).then(() => { document.getElementById("test").style="background-color:white; " });
+
     } else {
-        
+        rosszvalasz++
+        document.getElementById("test").style="background-color:red; "
+        sleep(800).then(() => { document.getElementById("test").style="background-color:white; " });
+
     }
-})
+
 
 ujkerdes()
 
 }
+
+
 function ujkerdes(params) {
-    if (kerdesSzorsz==kerdesek.length) {
+    if (kerdesSzorsz==kerdesek.length-1) {
         vege()
     } else {
         kerdesSzorsz++
+        console.log(kerdesek[kerdesSzorsz].k);
     const kerdesKi = document.getElementById("kerdes")
     const v1Ki = document.getElementById("v1ir")
     const v2Ki = document.getElementById("v2ir")
@@ -87,5 +102,5 @@ function ujkerdes(params) {
 }
     }
 function vege(params) {
-    
+    document.getElementById("test").innerHTML= "Helyes válasz: "+jovalasz
 }
